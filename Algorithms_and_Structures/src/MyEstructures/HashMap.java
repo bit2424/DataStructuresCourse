@@ -3,7 +3,7 @@ import java.lang.System;
 
 public class HashMap<K,V> implements MyHashMap<K, V>{
 	
-	private Object container[] = new Object[20];
+	private Object container[] = new Object[200];
 	
 	@Override
 	public void put(K key, V value) {

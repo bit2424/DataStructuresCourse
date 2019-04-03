@@ -91,5 +91,17 @@ class Pruebas_Estructuras {
 			fail("Me la jugue");
 		}
 	}
+	
+	Binary_tree<Integer> tree_t;
+	
+	void BSTscene() {
+		tree_t = new Binary_tree<>(new Binary_node<Integer>(null, 5));
+	}
+	
+	@Test
+	void BST_Test() {
+		BSTscene();
+		tree_t.add(5 , tree_t.root);
+	}
 
 }
