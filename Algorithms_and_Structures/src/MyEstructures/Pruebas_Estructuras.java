@@ -102,6 +102,24 @@ class Pruebas_Estructuras {
 	void BST_Test() {
 		BSTscene();
 		tree_t.add(5 , tree_t.root);
+		tree_t.add(5 , tree_t.root);
+		tree_t.add(5 , tree_t.root);
+		tree_t.search(3, tree_t.root);
+		tree_t.delete(3, tree_t.root);
+		tree_t.delete(5, tree_t.root);
+		tree_t.delete(5, tree_t.root);
+		tree_t.delete(5, tree_t.root);
+		tree_t.delete(5, tree_t.root);
+		tree_t.add(5 , tree_t.root);
+		
+		for (int i = 0; i < 500; i++) {
+			tree_t.add((int)(Math.random()*600), tree_t.root);
+		}
+		
+		for (int i = 0; i < 500; i++) {
+			tree_t.delete((int)(Math.random()*600), tree_t.root);
+		}
+		
 	}
 
 }

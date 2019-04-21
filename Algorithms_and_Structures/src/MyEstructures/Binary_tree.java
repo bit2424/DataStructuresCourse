@@ -43,19 +43,27 @@ public class Binary_tree<V  extends Comparable<V>> implements MyBinaryTree<V>{
 		Binary_node<V> f_delete = search(elem, ref);
 		if(f_delete != null){
 			if(f_delete.getLeft() == null && f_delete.getRight() == null ) {  // Case 1: No childs
-				if(f_delete.getParent().getLeft().equals(f_delete)) {
-					f_delete.getParent().setLeft(null);
+				if(f_delete.getParent() != null) {	
+					if(f_delete.getParent().getLeft().equals(f_delete)) {
+						f_delete.getParent().setLeft(null);
+					}else {
+						f_delete.getParent().setRight(null);
+					}
 				}else {
-					f_delete.getParent().setRight(null);
+					root = null;
 				}
 			}else if(f_delete.getLeft() == null || f_delete.getRight() == null ) {  // Case 2: 1 child
 				
-				Binary_node<V> replace = (f_delete.getLeft() == null)? f_delete.getLeft():f_delete.getRight();
+				Binary_node<V> replace = (f_delete.getLeft() == null)? f_delete.getRight():f_delete.getLeft();
 				
-				if(f_delete.getParent().getLeft().equals(f_delete)) {
-					f_delete.getParent().setLeft(replace);
+				if(f_delete.getParent() != null) {
+					if(f_delete.getParent().getLeft().equals(f_delete)) {
+						f_delete.getParent().setLeft(replace);
+					}else {
+						f_delete.getParent().setRight(replace);
+					}
 				}else {
-					f_delete.getParent().setRight(replace);
+					root = replace;
 				}
 				
 			}else { // Case 3: 2 childs
@@ -71,12 +79,14 @@ public class Binary_tree<V  extends Comparable<V>> implements MyBinaryTree<V>{
 
 	@Override
 	public Binary_node<V> search(V value,Binary_node<V> ref) {
-		if(ref.getValue().equals(value)) {
-			return ref;
-		}else if(ref.getValue().compareTo(value) > 0) {
-			return search(value,ref.getRight());
-		}else if(ref.getValue().compareTo(value) < 0){
-			return search(value,ref.getLeft());
+		if(ref != null) {
+			if(ref.getValue().equals(value)) {
+				return ref;
+			}else if(ref.getValue().compareTo(value) > 0) {
+				return search(value,ref.getRight());
+			}else if(ref.getValue().compareTo(value) < 0){
+				return search(value,ref.getLeft());
+			}
 		}
 		return null;
 	}

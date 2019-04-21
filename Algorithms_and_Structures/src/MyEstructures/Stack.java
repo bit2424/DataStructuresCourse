@@ -33,7 +33,7 @@ public class Stack<E> implements MyStack<E>{
 	}
 
 	@Override
-	public E top() {
+	public E peek() {
 		if(first != null) {
 			E ref = (E) first.getInfo();
 			return ref;
