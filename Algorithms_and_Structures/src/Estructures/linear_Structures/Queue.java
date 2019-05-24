@@ -1,12 +1,11 @@
 package Estructures.linear_Structures;
 
-import MyEstructures.MyQueue;
-import MyEstructures.Node;
+
 
 public class Queue<E> implements MyQueue<E> {
 	
-	private MyEstructures.Node<E> first;
-	private MyEstructures.Node<E> Last;
+	Node<E> first;
+	Node<E> Last;
 	private int size;
 	
 	public Queue() {
@@ -18,14 +17,14 @@ public class Queue<E> implements MyQueue<E> {
 	public void offer(E obj) {
 		size++;
 		if(Last != null && first != null) {
-			MyEstructures.Node<E> ref= new MyEstructures.Node<E>(obj);
+			Node<E> ref= new Node<E>(obj);
 			Last.addBefore(ref);
 			ref.addNext(Last);
 			Last = ref;
 		}else if(first == null && Last == null) {
-			first = new MyEstructures.Node<E>(obj);
+			first = new Node<E>(obj);
 		}else if(Last == null){
-			MyEstructures.Node<E> ref= new Node<E>(obj);
+			Node<E> ref= new Node<E>(obj);
 			ref.addNext(first);
 			Last = ref;
 			first.addBefore(Last);

@@ -1,12 +1,11 @@
 package Estructures.linear_Structures;
 
-import MyEstructures.MyStack;
-import MyEstructures.Node;
+
 
 public class Stack<E> implements MyStack<E> {
 	
-	private MyEstructures.Node<E> first;
-	private MyEstructures.Node<E> Last;
+	private Node<E> first;
+	private Node<E> Last;
 	private int size;
 	
 	public Stack() {
@@ -18,7 +17,7 @@ public class Stack<E> implements MyStack<E> {
 	public void push(E obj) {
 		size++;
 		if(first != null) {
-			MyEstructures.Node<E> c = new MyEstructures.Node<E>(obj);
+			Node<E> c = new Node<E>(obj);
 			c.addBefore(first);
 			first = c;
 		}else {

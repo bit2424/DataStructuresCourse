@@ -1,5 +1,8 @@
 package Estructures;
 
+import Estructures.linear_Structures.HashMap;
+import Estructures.linear_Structures.Queue;
+import Estructures.linear_Structures.Stack;
 import Estructures.trees.AVLTree;
 import Estructures.trees.Binary_tree;
 import Estructures.trees.RBTree;

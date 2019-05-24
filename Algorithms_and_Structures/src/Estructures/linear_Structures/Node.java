@@ -2,8 +2,8 @@ package Estructures.linear_Structures;
 
 public class Node<E> {
 	E info;
-	Node<E> next;
-	Node<E> before;
+	public Node<E> next;
+	public Node<E> before;
 	
 	public Node(E info) {
 		this.info = info;
