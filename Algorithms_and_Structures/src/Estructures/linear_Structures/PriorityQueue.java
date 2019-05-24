@@ -1,10 +1,9 @@
 package Estructures.linear_Structures;
 
-import MyEstructures.Heap;
-import MyEstructures.MyQueue;
+
 
 public class PriorityQueue<V extends Comparable<V>> implements MyQueue<V> {
-	MyEstructures.Heap<V> elements;
+	Heap<V> elements;
 	
 	public PriorityQueue (boolean Type) {
 		elements = new Heap<>(Type);

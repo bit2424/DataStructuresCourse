@@ -1,6 +1,5 @@
 package Estructures.linear_Structures;
-import MyEstructures.MyHashMap;
-import MyEstructures.NodoHash;
+
 
 import java.lang.System;
 

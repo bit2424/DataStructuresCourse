@@ -1,5 +1,7 @@
 package Estructures.MyGraphs;
 
+import Estructures.GeneralGraphs.FloydWarshall;
+
 import java.util.*;
 
 public class AdjacencyMatrixGraph<V,E extends Comparable<E>> implements IGraph<V,E> {
@@ -348,8 +350,12 @@ public class AdjacencyMatrixGraph<V,E extends Comparable<E>> implements IGraph<V
 
         for (i = 0; i < matrixAdyacency.length; i++)
             for (j = 0; j < matrixAdyacency.length; j++)
-                if(matrixAdyacency[i][j] == null){
-                    dist[i][j] = (double)matrixAdyacency[i][j].getValue();
+                if(matrixAdyacency[i][j] != null){
+                    if (!(matrixAdyacency[i][j].getValue() instanceof Double)){
+                        dist[i][j] = Double.parseDouble(String.valueOf(matrixAdyacency[i][j].getValue()));
+                    }else{
+                        dist[i][j] = (double)matrixAdyacency[i][j].getValue();
+                    }
                 }else{
                     dist[i][j] = Double.MAX_VALUE;
                 }
@@ -414,5 +420,44 @@ public class AdjacencyMatrixGraph<V,E extends Comparable<E>> implements IGraph<V
 
     public void setMatrixAdyacency(EdgeM[][] matrixAdyacency) {
         this.matrixAdyacency = matrixAdyacency;
+    }
+
+    public static void main(String args[]){
+
+        AdjacencyMatrixGraph<Integer,Integer> g = new AdjacencyMatrixGraph<>(true, false);
+        g.insertVertex(8);
+        g.insertVertex(9);
+        g.insertVertex(10);
+        g.insertVertex(11);
+        g.insertVertex(12);
+        g.insertEdge(0,1,10);
+        g.insertEdge(0,2,10);
+        g.insertEdge(1,3,20);
+
+
+        System.out.println(g.getElementsReference().get(1).getValue());
+
+        ArrayList<Integer> lol = g.BFS(0);
+        for(int I = 0; I< lol.size(); I++){
+            System.out.print(" " + lol.get(I));
+        }
+
+        System.out.println();
+
+        lol = g.DFS(0);
+        for(int I = 0; I< lol.size(); I++){
+            System.out.print(" " + lol.get(I));
+        }
+
+        System.out.println();
+
+        double[][] lol2 = g.Floyd_Warshal();
+
+        for(int I = 0; I<5 ; I++){
+            for(int k = 0; k<5 ; k++){
+                System.out.print(" " + lol2[I][k]);
+            }
+            System.out.println();
+        }
     }
 }

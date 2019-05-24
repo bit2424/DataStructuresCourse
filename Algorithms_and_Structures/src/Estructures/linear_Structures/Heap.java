@@ -1,7 +1,5 @@
 package Estructures.linear_Structures;
 
-import MyEstructures.MyHeap;
-
 import java.util.Arrays;
 
 public class Heap<V extends Comparable<V>> implements MyHeap<V> {
